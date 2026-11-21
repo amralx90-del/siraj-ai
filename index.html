@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071426">
+  <title>NEXORA AI | مستقبل الذكاء الاصطناعي</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(145deg, #071426, #102c49);
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 22px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #24425d;
+    }
+    .brand {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #53d9ff;
+    }
+    .tagline { color: #b8cddd; font-size: 12px; }
+    main {
+      width: min(680px, 92%);
+      margin: auto;
+      padding: 55px 0;
+      text-align: center;
+    }
+    .symbol {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 22px;
+      border: 2px solid #53d9ff;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      color: #53d9ff;
+      font-size: 35px;
+      font-weight: bold;
+      transform: rotate(45deg);
+    }
+    .symbol span { transform: rotate(-45deg); }
+    h1 { font-size: clamp(30px, 7vw, 48px); margin: 12px 0; }
+    h1 span { color: #53d9ff; }
+    .intro {
+      color: #c1d2e2;
+      line-height: 1.9;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+    .chat {
+      background: #10233a;
+      border: 1px solid #31516e;
+      border-radius: 18px;
+      padding: 18px;
+      text-align: right;
+    }
+    .chat label { display: block; margin-bottom: 12px; color: #dceaf5; }
+    textarea {
+      width: 100%;
+      min-height: 105px;
+      resize: vertical;
+      border: 1px solid #42617c;
+      border-radius: 12px;
+      background: #09182a;
+      color: white;
+      padding: 14px;
+      font-size: 15px;
+      outline: none;
+    }
+    textarea:focus { border-color: #53d9ff; }
+    button {
+      width: 100%;
+      margin-top: 13px;
+      padding: 14px;
+      border: 0;
+      border-radius: 12px;
+      background: #53d9ff;
+      color: #071426;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #reply {
+      display: none;
+      margin-top: 15px;
+      padding: 13px;
+      border-radius: 10px;
+      background: #193650;
+      color: #dceaf5;
+      line-height: 1.8;
+    }
+    footer {
+      text-align: center;
+      padding: 22px;
+      color: #91a9bd;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">NEXORA AI</div>
+    <div class="tagline">ذكاء بلا حدود</div>
+  </header>
+
+  <main>
+    <div class="symbol"><span>N</span></div>
+    <h1>مرحباً بك في <span>NEXORA AI</span></h1>
+    <p class="intro">
+      اكتشف تجربة جديدة مع الذكاء الاصطناعي.
+      منصة ذكية نعمل على تطويرها لتساعدك في التفكير والإبداع والإنجاز.
+    </p>
+
+    <section class="chat">
+      <label for="question">ما الذي تريد المساعدة فيه اليوم؟</label>
+      <textarea id="question" placeholder="اكتب سؤالك هنا..."></textarea>
+      <button onclick="sendQuestion()">ابدأ المحادثة</button>
+      <div id="reply"></div>
+    </section>
+  </main>
+
+  <footer>© 2026 NEXORA AI — جميع الحقوق محفوظة</footer>
+
+  <script>
+    function sendQuestion() {
+      const question = document.getElementById("question").value.trim();
+      const reply = document.getElementById("reply");
+
+      if (!question) {
+        reply.style.display = "block";
+        reply.textContent = "يرجى كتابة سؤالك أولاً.";
+        return;
+      }
+
+      reply.style.display = "block";
+      reply.textContent =
+        "شكراً لك! تم استلام رسالتك في النموذج التجريبي. " +
+        "سيتم تفعيل الإجابات الذكية عند ربط المنصة بمحرك الذكاء الاصطناعي.";
+    }
+    document.getElementById("question").addEventListener("keydown", function(event) {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        sendQuestion();
+      }
+    });
+  </script>
+</body>
+</html>
