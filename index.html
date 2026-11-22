@@ -2,159 +2,139 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#071426">
-  <title>NEXORA AI | مستقبل الذكاء الاصطناعي</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(145deg, #071426, #102c49);
-      color: white;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      padding: 22px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #24425d;
-    }
-    .brand {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #53d9ff;
-    }
-    .tagline { color: #b8cddd; font-size: 12px; }
-    main {
-      width: min(680px, 92%);
-      margin: auto;
-      padding: 55px 0;
-      text-align: center;
-    }
-    .symbol {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 22px;
-      border: 2px solid #53d9ff;
-      border-radius: 22px;
-      display: grid;
-      place-items: center;
-      color: #53d9ff;
-      font-size: 35px;
-      font-weight: bold;
-      transform: rotate(45deg);
-    }
-    .symbol span { transform: rotate(-45deg); }
-    h1 { font-size: clamp(30px, 7vw, 48px); margin: 12px 0; }
-    h1 span { color: #53d9ff; }
-    .intro {
-      color: #c1d2e2;
-      line-height: 1.9;
-      font-size: 16px;
-      margin-bottom: 30px;
-    }
-    .chat {
-      background: #10233a;
-      border: 1px solid #31516e;
-      border-radius: 18px;
-      padding: 18px;
-      text-align: right;
-    }
-    .chat label { display: block; margin-bottom: 12px; color: #dceaf5; }
-    textarea {
-      width: 100%;
-      min-height: 105px;
-      resize: vertical;
-      border: 1px solid #42617c;
-      border-radius: 12px;
-      background: #09182a;
-      color: white;
-      padding: 14px;
-      font-size: 15px;
-      outline: none;
-    }
-    textarea:focus { border-color: #53d9ff; }
-    button {
-      width: 100%;
-      margin-top: 13px;
-      padding: 14px;
-      border: 0;
-      border-radius: 12px;
-      background: #53d9ff;
-      color: #071426;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    #reply {
-      display: none;
-      margin-top: 15px;
-      padding: 13px;
-      border-radius: 10px;
-      background: #193650;
-      color: #dceaf5;
-      line-height: 1.8;
-    }
-    footer {
-      text-align: center;
-      padding: 22px;
-      color: #91a9bd;
-      font-size: 12px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090d1c">
+<title>NEXORA AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#090d1c;
+ color:#fff;
+ min-height:100vh;
+ display:flex;
+ justify-content:center;
+}
+.app{
+ width:100%;
+ max-width:650px;
+ min-height:100vh;
+ display:flex;
+ flex-direction:column;
+ padding:22px;
+}
+header{text-align:center;padding:35px 0 25px}
+.logo{
+ font-size:38px;
+ font-weight:bold;
+ letter-spacing:2px;
+ background:linear-gradient(90deg,#49d8ff,#a78bfa);
+ -webkit-background-clip:text;
+ color:transparent;
+}
+.tagline{color:#9ba9c4;margin-top:10px}
+.welcome{
+ margin-top:35px;
+ text-align:center;
+ padding:25px 15px;
+ border:1px solid #263653;
+ border-radius:20px;
+ background:#111a30;
+}
+.welcome h2{font-size:23px}
+.welcome p{color:#aab7d0;line-height:1.8}
+.messages{
+ flex:1;
+ overflow:auto;
+ padding:15px 0;
+}
+.message{
+ padding:13px 16px;
+ margin:10px 0;
+ border-radius:15px;
+ line-height:1.7;
+ max-width:90%;
+ white-space:pre-wrap;
+}
+.bot{background:#17243c;margin-left:auto}
+.user{background:#164b70;margin-right:auto}
+.composer{
+ display:flex;
+ gap:9px;
+ padding:12px;
+ background:#111a30;
+ border:1px solid #263653;
+ border-radius:16px;
+}
+input{
+ flex:1;
+ min-width:0;
+ background:transparent;
+ border:0;
+ outline:0;
+ color:white;
+ font-size:16px;
+}
+button{
+ border:0;
+ border-radius:12px;
+ padding:12px 18px;
+ color:white;
+ background:#167bb5;
+ font-weight:bold;
+}
+footer{text-align:center;color:#71809c;font-size:12px;padding:18px}
+</style>
 </head>
 <body>
-  <header>
-    <div class="brand">NEXORA AI</div>
-    <div class="tagline">ذكاء بلا حدود</div>
-  </header>
+<div class="app">
+<header>
+<div class="logo">NEXORA AI</div>
+<div class="tagline">ذكاء يتجاوز حدود المستقبل</div>
+</header>
 
-  <main>
-    <div class="symbol"><span>N</span></div>
-    <h1>مرحباً بك في <span>NEXORA AI</span></h1>
-    <p class="intro">
-      اكتشف تجربة جديدة مع الذكاء الاصطناعي.
-      منصة ذكية نعمل على تطويرها لتساعدك في التفكير والإبداع والإنجاز.
-    </p>
+<div class="welcome" id="welcome">
+<h2>مرحباً بك في NEXORA AI</h2>
+<p>مساعدك الذكي للإبداع والمعرفة والعمل.<br>اكتب رسالتك وابدأ رحلتك معنا.</p>
+</div>
 
-    <section class="chat">
-      <label for="question">ما الذي تريد المساعدة فيه اليوم؟</label>
-      <textarea id="question" placeholder="اكتب سؤالك هنا..."></textarea>
-      <button onclick="sendQuestion()">ابدأ المحادثة</button>
-      <div id="reply"></div>
-    </section>
-  </main>
+<div class="messages" id="messages"></div>
 
-  <footer>© 2026 NEXORA AI — جميع الحقوق محفوظة</footer>
+<div class="composer">
+<input id="question" type="text" placeholder="اكتب رسالتك هنا..." />
+<button onclick="sendMessage()">إرسال</button>
+</div>
 
-  <script>
-    function sendQuestion() {
-      const question = document.getElementById("question").value.trim();
-      const reply = document.getElementById("reply");
+<footer>© 2026 NEXORA AI — All rights reserved</footer>
+</div>
 
-      if (!question) {
-        reply.style.display = "block";
-        reply.textContent = "يرجى كتابة سؤالك أولاً.";
-        return;
-      }
+<script>
+function sendMessage(){
+ const input=document.getElementById('question');
+ const value=input.value.trim();
+ if(!value)return;
 
-      reply.style.display = "block";
-      reply.textContent =
-        "شكراً لك! تم استلام رسالتك في النموذج التجريبي. " +
-        "سيتم تفعيل الإجابات الذكية عند ربط المنصة بمحرك الذكاء الاصطناعي.";
-    }
-    document.getElementById("question").addEventListener("keydown", function(event) {
-      if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault();
-        sendQuestion();
-      }
-    });
-  </script>
+ document.getElementById('welcome').style.display='none';
+ const messages=document.getElementById('messages');
+
+ const user=document.createElement('div');
+ user.className='message user';
+ user.textContent=value;
+ messages.appendChild(user);
+
+ const bot=document.createElement('div');
+ bot.className='message bot';
+ bot.textContent='مرحباً! تم استلام رسالتك بنجاح. سيتم ربط محرك الذكاء الاصطناعي قريباً.';
+ messages.appendChild(bot);
+
+ input.value='';
+ messages.scrollTop=messages.scrollHeight;
+}
+document.getElementById('question').addEventListener('keydown',function(e){
+ if(e.key==='Enter')sendMessage();
+});
+</script>
 </body>
 </html>
